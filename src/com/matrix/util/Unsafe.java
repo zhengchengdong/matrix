@@ -84,6 +84,30 @@ public class Unsafe {
 		return theUnsafe.getBoolean(obj, fieldOffset);
 	}
 
+	public static long getLongFieldOfObject(Object obj, long fieldOffset) {
+		return theUnsafe.getLong(obj, fieldOffset);
+	}
+
+	public static byte getByteFieldOfObject(Object obj, long fieldOffset) {
+		return theUnsafe.getByte(obj, fieldOffset);
+	}
+
+	public static short getShortFieldOfObject(Object obj, long fieldOffset) {
+		return theUnsafe.getShort(obj, fieldOffset);
+	}
+
+	public static char getCharFieldOfObject(Object obj, long fieldOffset) {
+		return theUnsafe.getChar(obj, fieldOffset);
+	}
+
+	public static float getFloatFieldOfObject(Object obj, long fieldOffset) {
+		return theUnsafe.getFloat(obj, fieldOffset);
+	}
+
+	public static double getDoubleFieldOfObject(Object obj, long fieldOffset) {
+		return theUnsafe.getDouble(obj, fieldOffset);
+	}
+
 	public static char[] getValueOfString(String str) {
 		return (char[]) theUnsafe.getObject(str, FIELD_OFFSET_String_value);
 	}
