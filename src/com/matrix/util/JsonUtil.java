@@ -26,7 +26,7 @@ public class JsonUtil {
 	}
 
 	public static void saveObjToJsonFile(String fileBasePath, String fileName, Object data) throws IOException {
-		File file = new File(fileBasePath + fileName + ".json");
+		File file = new File(fileBasePath + File.separatorChar + fileName + ".json");
 		if (!file.getParentFile().exists()) {
 			file.getParentFile().mkdirs();
 		}

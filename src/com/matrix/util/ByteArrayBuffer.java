@@ -10,14 +10,28 @@ public class ByteArrayBuffer {
 
 	private int position;
 
+	private int limit;
+
 	private int mark;
+
+	public static ByteArrayBuffer fromByteBuffer(ByteBuffer byteBuffer) {
+		int size = byteBuffer.remaining();
+		ByteArrayBuffer byteArrayBuffer = new ByteArrayBuffer(size);
+		byteBuffer.get(byteArrayBuffer.innerByteArray);
+		return byteArrayBuffer;
+	}
 
 	public ByteArrayBuffer(int size) {
 		innerByteArray = new byte[size];
+		limit = size;
 	}
 
 	public ByteArrayBuffer(byte[] innerByteArray) {
 		this.innerByteArray = innerByteArray;
+	}
+
+	public boolean hasRemaining() {
+		return position < limit;
 	}
 
 	public ByteBuffer toByteBuffer() {

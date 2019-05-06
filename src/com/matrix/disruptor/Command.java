@@ -101,6 +101,14 @@ public class Command {
 		executeTime = buffer.getLong();
 	}
 
+	public Class<?>[] getParameterTypes() {
+		Class<?>[] types = new Class<?>[parameters.length];
+		for (int i = 0; i < parameters.length; i++) {
+			types[i] = parameters[i].getClass();
+		}
+		return types;
+	}
+
 	public String getType() {
 		return type;
 	}

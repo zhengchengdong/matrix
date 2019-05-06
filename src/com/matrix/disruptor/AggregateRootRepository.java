@@ -11,6 +11,10 @@ public class AggregateRootRepository {
 		return (T) aggregateRoots.get(name);
 	}
 
+	public <T> void putAggregateRoot(String name, T aggregateRoot) {
+		aggregateRoots.put(name, aggregateRoot);
+	}
+
 	public Map<String, Object> getAggregateRoots() {
 		return aggregateRoots;
 	}

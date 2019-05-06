@@ -1,6 +1,9 @@
 package com.matrix.disruptor;
 
-import java.io.*;
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -22,18 +25,21 @@ public class JournalFile implements Closeable {
 	/**
 	 * 如果文件不存在，创建文件。如果已存在，则到文件最末尾，准备写。
 	 *
-	 * @param name 完整文件名
+	 * @param name
+	 *            完整文件名
 	 * @throws Exception
 	 */
 	public JournalFile(String name) throws Exception {
 		file = new File(name);
+		if (!file.getParentFile().exists()) {
+			file.getParentFile().mkdirs();
+		}
 		rFile = new RandomAccessFile(file, "rw");
 		fc = rFile.getChannel();
 		fc.position(fc.size());
 	}
 
 	public void write(ByteBuffer bb) throws Exception {
-		bb.flip();
 		fc.write(bb);
 		writtenCount++;
 	}

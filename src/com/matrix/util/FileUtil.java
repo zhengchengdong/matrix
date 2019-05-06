@@ -28,7 +28,7 @@ public class FileUtil {
 			}
 		}
 		if (recentFileName != null) {
-			return fileBasePath + "/" + recentFileName;
+			return fileBasePath + File.separatorChar + recentFileName;
 		} else {
 			return null;
 		}

@@ -15,8 +15,9 @@ public abstract class DisruptorServiceBase {
 	private Map<String, String> callTypeMethodNameMap = new ConcurrentHashMap<>();
 	private Map<String, long[]> callTypeParametersAddressMap = new ConcurrentHashMap<>();
 
-	protected DisruptorServiceBase(Object serviceImpl) {
+	protected DisruptorServiceBase(Object serviceImpl, DisruptorRepository disruptorRepository) {
 		serviceImplType = serviceImpl.getClass().getName();
+		this.disruptorRepository = disruptorRepository;
 	}
 
 	protected <T> T executeFunction(String disruptorName, Function<T> function) throws Exception {
@@ -31,7 +32,7 @@ public abstract class DisruptorServiceBase {
 		return deferredResult.getResult();
 	}
 
-	protected void executeRunnable(String disruptorName, Process process) throws Exception {
+	protected void executeProcess(String disruptorName, Process process) throws Exception {
 		Command cmd = createCommand(process);
 		DeferredResult deferredResult = new DeferredResult();
 		Disruptor<CommandEvent> disruptor = disruptorRepository.getDisruptor(disruptorName);
@@ -50,7 +51,7 @@ public abstract class DisruptorServiceBase {
 		String callType = call.getClass().getName();
 		String methodName = callTypeMethodNameMap.get(callType);
 		if (methodName == null) {
-			methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
+			methodName = Thread.currentThread().getStackTrace()[3].getMethodName();
 			callTypeMethodNameMap.put(callType, methodName);
 		}
 		cmd.setMethod(methodName);
