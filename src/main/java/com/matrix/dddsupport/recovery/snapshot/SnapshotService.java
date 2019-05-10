@@ -1,6 +1,9 @@
-package com.matrix.disruptor;
+package com.matrix.dddsupport.recovery.snapshot;
 
 import com.lmax.disruptor.dsl.Disruptor;
+import com.matrix.dddsupport.command.CommandEvent;
+import com.matrix.dddsupport.disruptor.DisruptorRepository;
+import com.matrix.dddsupport.execute.DeferredResult;
 
 public class SnapshotService {
 	private DisruptorRepository disruptorRepository;

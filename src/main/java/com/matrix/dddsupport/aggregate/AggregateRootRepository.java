@@ -1,7 +1,9 @@
-package com.matrix.disruptor;
+package com.matrix.dddsupport.aggregate;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import com.matrix.dddsupport.recovery.snapshot.Snapshot;
 
 public class AggregateRootRepository {
 

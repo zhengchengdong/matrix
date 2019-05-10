@@ -1,4 +1,4 @@
-package com.matrix.disruptor;
+package com.matrix.dddsupport.disruptor;
 
 import java.io.File;
 import java.util.HashMap;
@@ -8,6 +8,8 @@ import com.lmax.disruptor.SleepingWaitStrategy;
 import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.dsl.ProducerType;
 import com.lmax.disruptor.util.DaemonThreadFactory;
+import com.matrix.dddsupport.aggregate.AggregateRootRepository;
+import com.matrix.dddsupport.command.CommandEvent;
 
 public class DisruptorRepository {
 
@@ -17,7 +19,7 @@ public class DisruptorRepository {
 			String snapshotFileBasePath, String jFileBasePath) {
 		Disruptor<CommandEvent> disruptor = new Disruptor<>(new CommandEventFactory(), 1024 * 1024,
 				DaemonThreadFactory.INSTANCE, ProducerType.MULTI, new SleepingWaitStrategy());
-		disruptor.handleEventsWith(new CommandEventHandler(aggregateRootRepository,
+		disruptor.handleEventsWith(new DisruptorCommandEventHandler(aggregateRootRepository,
 				snapshotFileBasePath + File.separatorChar + disruptorName + File.separatorChar,
 				jFileBasePath + File.separatorChar + disruptorName + File.separatorChar));
 		disruptor.start();

@@ -1,4 +1,4 @@
-package com.matrix.disruptor;
+package com.matrix.dddsupport.recovery.commandreplay;
 
 import java.io.File;
 import java.io.RandomAccessFile;
@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.matrix.dddsupport.command.Command;
 import com.matrix.util.ByteArrayBuffer;
 import com.matrix.util.ByteArrayBufferSerializer;
 import com.matrix.util.FileUtil;

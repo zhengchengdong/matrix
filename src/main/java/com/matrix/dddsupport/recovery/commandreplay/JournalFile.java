@@ -1,4 +1,4 @@
-package com.matrix.disruptor;
+package com.matrix.dddsupport.recovery.commandreplay;
 
 import java.io.Closeable;
 import java.io.File;

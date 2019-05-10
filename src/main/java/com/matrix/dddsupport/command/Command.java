@@ -1,7 +1,8 @@
-package com.matrix.disruptor;
+package com.matrix.dddsupport.command;
 
 import com.matrix.util.ByteArrayBuffer;
 import com.matrix.util.ByteArrayBufferSerializer;
+import com.matrix.util.UnsupportedTypeException;
 
 public class Command {
 

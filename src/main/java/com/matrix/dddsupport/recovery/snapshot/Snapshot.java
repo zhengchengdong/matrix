@@ -1,4 +1,4 @@
-package com.matrix.disruptor;
+package com.matrix.dddsupport.recovery.snapshot;
 
 import java.util.HashMap;
 import java.util.Map;

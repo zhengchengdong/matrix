@@ -1,7 +1,8 @@
-package com.matrix.disruptor;
+package com.matrix.dddsupport.recovery.snapshot;
 
 import java.io.File;
 
+import com.matrix.dddsupport.aggregate.AggregateRootRepository;
 import com.matrix.util.JsonUtil;
 
 public class AggregateRootRepositorySnapshotRecoverer {

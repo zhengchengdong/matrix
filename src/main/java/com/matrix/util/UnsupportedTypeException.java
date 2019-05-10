@@ -1,4 +1,4 @@
-package com.matrix.disruptor;
+package com.matrix.util;
 
 public class UnsupportedTypeException extends Exception {
 

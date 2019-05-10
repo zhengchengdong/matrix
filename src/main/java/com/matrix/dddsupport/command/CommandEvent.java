@@ -1,4 +1,8 @@
-package com.matrix.disruptor;
+package com.matrix.dddsupport.command;
+
+import com.matrix.dddsupport.execute.DeferredResult;
+import com.matrix.dddsupport.execute.Function;
+import com.matrix.dddsupport.execute.Process;
 
 public class CommandEvent {
 
